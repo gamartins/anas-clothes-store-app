@@ -2,5 +2,7 @@
   "name": "anas-clothes-store-app",
   "app_id": "",
   "type": "ionic-angular",
-  "integrations": {}
+  "integrations": {
+    "cordova": {}
+  }
 }
