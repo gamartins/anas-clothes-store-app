@@ -9,6 +9,7 @@ import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { ClothesPage } from '../pages/clothes/clothes';
 import { CustomersPage } from '../pages/customers/customers';
+import { SalesPage } from '../pages/sales/sales';
 
 @Component({
   templateUrl: 'app.html'
@@ -20,7 +21,8 @@ export class MyApp {
   pages = [
     { title: 'Home', component: HomePage },
     { title: 'Roupas', component: ClothesPage },
-    { title: 'Clientes', component: CustomersPage }
+    { title: 'Clientes', component: CustomersPage },
+    { title: 'Vendas', component: SalesPage },
   ]
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, events: Events) {

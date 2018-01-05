@@ -12,6 +12,7 @@ import { ErrorChecker } from '../../util/ErrorChecker';
 })
 export class ClothesPage {
   clothes = []
+  role = null
 
   loading: Loading
 
@@ -25,6 +26,8 @@ export class ClothesPage {
   }
 
   ionViewWillEnter() {
+    this.role = this.navParams.get('role')
+
     this.loading = this.createLoading('Obtendo roupas...')
     this.loading.present()
 
@@ -50,8 +53,15 @@ export class ClothesPage {
     }).present()
   }
 
-  openClotheDetailsPage(id?) {
-    this.navCtrl.push(ClothesDetailsPage, { id: id })
+  selectClothe(id?) {
+    if(this.role == 'search') {
+      this.navCtrl.getPrevious().data.clotheID = id
+      this.navCtrl.pop()
+    }
+    
+    else {
+      this.navCtrl.push(ClothesDetailsPage, { id: id })
+    }
   }
 
 }

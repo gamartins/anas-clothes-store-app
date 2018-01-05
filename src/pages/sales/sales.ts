@@ -1,19 +1,18 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, ToastController, LoadingController, Loading } from 'ionic-angular';
-
+import { NavController, NavParams, Loading, ToastController, LoadingController } from 'ionic-angular';
+import { SalesProvider } from '../../providers/sales';
 import { ErrorChecker } from '../../util/ErrorChecker';
+import { SalesDetailsPage } from '../sales-details/sales-details';
 
-import { CustomersProvider } from '../../providers/customers';
-
-import { CustomersDetailsPage } from '../customers-details/customers-details';
+import * as moment from 'moment';
 
 @Component({
-  selector: 'page-customers',
-  templateUrl: 'customers.html',
+  selector: 'page-sales',
+  templateUrl: 'sales.html',
 })
-export class CustomersPage {
-  customers = []
-  role = null
+export class SalesPage {
+
+  sales = []
 
   loading: Loading
 
@@ -22,31 +21,28 @@ export class CustomersPage {
     public navCtrl: NavController,
     public toastCtrl: ToastController,
     public loadingCtrl: LoadingController,
-    public customerProvider: CustomersProvider) {
+    public salesProvider: SalesProvider) {
 
   }
 
   ionViewWillEnter() {
-    this.role = this.navParams.get('role')
-    
     this.loading = this.createLoading('Obtendo clientes...')
     this.loading.present()
 
-    this.customerProvider.getCustomers()
-    .then((data: any) => this.customers = data.customers)
+    this.salesProvider.getSales()
+    .then((data: any) => this.formatSaleData(data.sales))
     .catch(error => this.showMessage(ErrorChecker.getErrorMessage(error)))
     .then(() => this.loading.dismiss())
 
   }
 
-  customerSelected(id?) {
-    if(this.role == 'search') {
-      this.navCtrl.getPrevious().data.customerID = id
-      this.navCtrl.pop()
-    }
+  openSalesDetailsPage(id?) {
+    this.navCtrl.push(SalesDetailsPage, { id: id })
+  }
 
-    else
-      this.navCtrl.push(CustomersDetailsPage, { id: id })
+  formatSaleData(sales) {
+    sales.forEach(sales => sales.date = moment.utc(sales.date).format('DD-MM-YYYY'))
+    this.sales = sales
   }
 
   createLoading(message) {

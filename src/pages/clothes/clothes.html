@@ -10,13 +10,13 @@
 
 <ion-content padding>
   <ion-list>
-    <ion-item *ngFor="let clothe of clothes" (tap)="openClotheDetailsPage(clothe.id)">
+    <ion-item *ngFor="let clothe of clothes" (tap)="selectClothe(clothe.id)">
       <h2>{{ clothe.description }}</h2>
       <p>{{ clothe.brand }}</p>
       <p>{{ clothe.purchase_price }}</p>
     </ion-item>
   </ion-list>
   <ion-fab bottom right>
-    <button ion-fab (tap)="openClotheDetailsPage()"><ion-icon name="add"></ion-icon></button>
+    <button ion-fab (tap)="selectClothe()"><ion-icon name="add"></ion-icon></button>
   </ion-fab>
 </ion-content>

@@ -80,7 +80,7 @@ export class CustomersDetailsPage {
       let savePromise = null
       let customer = this.customerForm.value
 
-      if(this.customerId) savePromise = this.customersProvider.editCustomer (this.customerId, customer)
+      if(this.customerId) savePromise = this.customersProvider.editCustomer(this.customerId, customer)
       else savePromise = this.customersProvider.addCustomers(customer)
       
       savePromise.then(data => this.navCtrl.pop())

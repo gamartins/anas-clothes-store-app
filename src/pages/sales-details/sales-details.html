@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Detalhes da Venda</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="saleForm">
+    <ion-item (tap)="searchClothe()">
+      <h2>{{ clothe.description }}</h2>
+      <p>{{ clothe.brand }}</p>
+    </ion-item>
+    <ion-item (tap)="searchCustomer()">
+      <h2>{{ customer.name }}</h2>
+      <p>{{ customer.phone }}</p>
+    </ion-item>
+    <ion-item>
+      <ion-label>Data de venda</ion-label>
+      <ion-datetime displayFormat="DD/MM/YYYY" formControlName="date">
+      </ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label>Valor</ion-label>
+      <ion-input type="number" formControlName="value"></ion-input>
+    </ion-item>
+    <ion-item no-lines>
+      <ion-label>Pago</ion-label>
+      <ion-checkbox formControlName="paid"></ion-checkbox>
+    </ion-item>
+    <button class="submit-btn" ion-button block (tap)="save()">Salvar</button>
+    <button
+      class="submit-btn"
+      ion-button block color="danger"
+      (tap)="remove()" *ngIf="customerId">Remover
+    </button>
+  </form>
+</ion-content>
