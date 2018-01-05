@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle icon-only>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Clientes</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item *ngFor="let customer of customers" (tap)="openCustomerDetailsPage(customer.id)">
+      <h2>{{ customer.name }}</h2>
+      <p>{{ customer.phone }}</p>
+      <p>{{ customer.address }}</p>
+    </ion-item>
+  </ion-list>
+  <ion-fab bottom right>
+    <button ion-fab (tap)="openCustomerDetailsPage()"><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
+</ion-content>

@@ -11,12 +11,15 @@ import { IonicStorageModule } from '@ionic/storage';
 import { UserInfoProvider } from '../providers/user-info';
 import { AuthProvider } from '../providers/auth';
 import { ClothesProvider } from '../providers/clothes';
+import { CustomersProvider } from '../providers/customers';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { ClothesPage } from '../pages/clothes/clothes'
 import { ClothesDetailsPage } from '../pages/clothes-details/clothes-details';
+import { CustomersPage } from '../pages/customers/customers';
+import { CustomersDetailsPage } from '../pages/customers-details/customers-details'
 
 @NgModule({
   declarations: [
@@ -25,6 +28,8 @@ import { ClothesDetailsPage } from '../pages/clothes-details/clothes-details';
     LoginPage,
     ClothesPage,
     ClothesDetailsPage,
+    CustomersPage,
+    CustomersDetailsPage,
   ],
   imports: [
     HttpModule,
@@ -39,6 +44,8 @@ import { ClothesDetailsPage } from '../pages/clothes-details/clothes-details';
     LoginPage,
     ClothesPage,
     ClothesDetailsPage,
+    CustomersPage,
+    CustomersDetailsPage,
   ],
   providers: [
     StatusBar,
@@ -46,8 +53,8 @@ import { ClothesDetailsPage } from '../pages/clothes-details/clothes-details';
     AuthProvider,
     UserInfoProvider,
     ClothesProvider,
-    { provide: ErrorHandler, useClass: IonicErrorHandler },
-    AuthProvider,
+    CustomersProvider,
+    { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })
 export class AppModule {}

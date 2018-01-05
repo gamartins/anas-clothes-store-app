@@ -8,6 +8,7 @@ import { Events } from 'ionic-angular/util/events';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { ClothesPage } from '../pages/clothes/clothes';
+import { CustomersPage } from '../pages/customers/customers';
 
 @Component({
   templateUrl: 'app.html'
@@ -18,7 +19,8 @@ export class MyApp {
   rootPage:any = LoginPage;
   pages = [
     { title: 'Home', component: HomePage },
-    { title: 'Roupas', component: ClothesPage }
+    { title: 'Roupas', component: ClothesPage },
+    { title: 'Clientes', component: CustomersPage }
   ]
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, events: Events) {

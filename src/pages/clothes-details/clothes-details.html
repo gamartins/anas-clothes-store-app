@@ -5,31 +5,29 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-content padding>
-    <form [formGroup]="clotheForm">
-      <ion-item>
-        <ion-label>Descrição</ion-label>
-        <ion-input type="text" formControlName="description"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label>Marca</ion-label>
-        <ion-input type="text" formControlName="brand"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label>Preço de compra</ion-label>
-        <ion-input type="number" formControlName="purchase_price"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label>Data de compra</ion-label>
-        <ion-datetime displayFormat="DD/MM/YYYY" formControlName="purchase_date">
-        </ion-datetime>
-      </ion-item>
-      <button class="submit-btn" ion-button block (tap)="save()">Salvar</button>
-      <button
-        class="submit-btn"
-        ion-button block color="danger"
-        (tap)="remove()" *ngIf="clotheId">Remover
-      </button>
-    </form>
-  </ion-content>
+  <form [formGroup]="clotheForm">
+    <ion-item>
+      <ion-label>Descrição</ion-label>
+      <ion-input type="text" formControlName="description"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Marca</ion-label>
+      <ion-input type="text" formControlName="brand"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Preço de compra</ion-label>
+      <ion-input type="number" formControlName="purchase_price"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Data de compra</ion-label>
+      <ion-datetime displayFormat="DD/MM/YYYY" formControlName="purchase_date">
+      </ion-datetime>
+    </ion-item>
+    <button class="submit-btn" ion-button block (tap)="save()">Salvar</button>
+    <button
+      class="submit-btn"
+      ion-button block color="danger"
+      (tap)="remove()" *ngIf="clotheId">Remover
+    </button>
+  </form>
 </ion-content>
