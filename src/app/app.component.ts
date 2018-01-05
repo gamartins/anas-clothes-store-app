@@ -7,6 +7,7 @@ import { Events } from 'ionic-angular/util/events';
 
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
+import { ClothesPage } from '../pages/clothes/clothes';
 
 @Component({
   templateUrl: 'app.html'
@@ -15,6 +16,10 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   rootPage:any = LoginPage;
+  pages = [
+    { title: 'Home', component: HomePage },
+    { title: 'Roupas', component: ClothesPage }
+  ]
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, events: Events) {
     platform.ready().then(() => {
@@ -25,6 +30,10 @@ export class MyApp {
 
       events.subscribe('user:loaded', () => this.nav.setRoot(HomePage))
     });
+  }
+
+  openPage(page) {
+    this.nav.setRoot(page.component)
   }
 }
 

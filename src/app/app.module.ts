@@ -10,16 +10,21 @@ import { IonicStorageModule } from '@ionic/storage';
 
 import { UserInfoProvider } from '../providers/user-info';
 import { AuthProvider } from '../providers/auth';
+import { ClothesProvider } from '../providers/clothes';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
+import { ClothesPage } from '../pages/clothes/clothes'
+import { ClothesDetailsPage } from '../pages/clothes-details/clothes-details';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     LoginPage,
+    ClothesPage,
+    ClothesDetailsPage,
   ],
   imports: [
     HttpModule,
@@ -32,12 +37,15 @@ import { LoginPage } from '../pages/login/login';
     MyApp,
     HomePage,
     LoginPage,
+    ClothesPage,
+    ClothesDetailsPage,
   ],
   providers: [
     StatusBar,
     SplashScreen,
     AuthProvider,
     UserInfoProvider,
+    ClothesProvider,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     AuthProvider,
   ]
